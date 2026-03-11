@@ -3,18 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My First Page</title>
+    <title>Yisake's Online Store</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
 
-  
-    
-    <h1>Hello, Isaaq!</h1>
-    <button id="myButton">Click me</button>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">Yisake's Store 🛍️</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">🛒 Cart</a></li>
+      </ul>
+    </nav>
 
-   <h2>Hi there Isaaq create a second button</h2>
-   <button id="another1">click me too</button>
-   
-  </body>
+    <!-- Product Section -->
+    <section class="products">
+      <h2>🔥 Top Picks</h2>
+      <div class="product-grid">
+
+        <div class="product-card">
+          <img src="https://via.placeholder.com/200" alt="Product 1" />
+          <h3>Product 1</h3>
+          <p>KSh 1,500</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="https://via.placeholder.com/200" alt="Product 2" />
+          <h3>Product 2</h3>
+          <p>KSh 2,000</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="https://via.placeholder.com/200" alt="Product 3" />
+          <h3>Product 3</h3>
+          <p>KSh 3,500</p>
+          <button>Add to Cart</button>
+        </div>
+
+      </div>
+    </section>
+
     <script src="script.js"></script>
+  </body>
 </html>
