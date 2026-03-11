@@ -1,12 +1,20 @@
+// Cart array to store added products
+let cart = []
 
- const button2= document.getElementById ("another1")
-   button2.addEventListener("click",function()
-       {
-         alert("Another button created fully functional 😝😎")
-      } )
+// Get all Add to Cart buttons
+const cartButtons = document.querySelectorAll(".product-card button")
 
-const button = document.getElementById("myButton")
+// Loop through each button and add a click listener
+cartButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    const card = button.parentElement
+    const productName = card.querySelector("h3").textContent
+    const productPrice = card.querySelector("p").textContent
 
-      button.addEventListener("click", function() {
-        alert("Wow i created my very first button🎉")
-      })
+    cart.push({ name: productName, price: productPrice })//adds to the array 
+
+    alert(productName + " added to cart! 🛒")
+    console.log("Cart:", cart) //displays output
+    //console.log(cart[0].name)
+  })
+})
