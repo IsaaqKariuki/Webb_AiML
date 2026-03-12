@@ -15,7 +15,7 @@
         <li><a href="#">Home</a></li>
         <li><a href="#">Categories</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="#">🛒 Cart</a></li>
+        <li><a href="#" id="cartIcon">🛒 Cart <span id="cartCount">0</span></a></l>
       </ul>
     </nav>
     
@@ -75,6 +75,24 @@
 
       </div>
     </section>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Your Cart 🛒</h2>
+    <button id="closeCart">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <!-- Items will appear here -->
+  </div>
+  <div class="cart-footer">
+    <h3>Total: <span id="cartTotal">KSh 0</span></h3>
+    <button class="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
 
     <script src="script.js"></script>
   </body>

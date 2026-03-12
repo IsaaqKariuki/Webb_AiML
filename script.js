@@ -14,11 +14,59 @@ cartButtons.forEach(function(button) {
     cart.push({ name: productName, price: productPrice })//adds to the array 
 
     alert(productName + " added to cart! 🛒")
+    // Update cart count
+document.getElementById("cartCount").textContent = cart.length
     console.log("Cart:", cart) //displays output
     //console.log(cart[0].name)
   })
 })
 
+// Cart Sidebar
+const cartSidebar = document.getElementById("cartSidebar")
+const overlay = document.getElementById("overlay")
+const closeCart = document.getElementById("closeCart")
+const cartItems = document.getElementById("cartItems")
+const cartTotal = document.getElementById("cartTotal")
+
+// Open cart when icon is clicked
+document.getElementById("cartIcon").addEventListener("click", function() {
+  cartSidebar.classList.add("open")
+  overlay.classList.add("active")
+  renderCart()
+})
+
+// Close cart
+closeCart.addEventListener("click", function() {
+  cartSidebar.classList.remove("open")
+  overlay.classList.remove("active")
+})
+
+overlay.addEventListener("click", function() {
+  cartSidebar.classList.remove("open")
+  overlay.classList.remove("active")
+})
+
+// Render cart items
+function renderCart() {
+  cartItems.innerHTML = ""
+  let total = 0
+
+  cart.forEach(function(item) {
+    const price = parseInt(item.price.replace("KSh ", "").replace(",", ""))
+    total += price
+
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <span>${item.name}</span>
+        <span>${item.price}</span>
+      </div>
+    `
+  })
+
+  cartTotal.textContent = "KSh " + total.toLocaleString()
+}
+
+///////////////////TIMER SECTION ///////////
 // Set countdown duration (1 hour from now)
 let totalSeconds = 3700
 
