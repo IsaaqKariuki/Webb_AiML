@@ -169,3 +169,40 @@ body {
     font-size: 14px;
   }
 }
+
+/* Timer Section */
+.timer-section {
+  background-color: #0047ab;
+  color: white;
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.timer-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.time-block {
+  background-color: white;
+  color: #0047ab;
+  border-radius: 10px;
+  padding: 20px 30px;
+  min-width: 80px;
+}
+
+.time-block span {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.time-block p {
+  font-size: 14px;
+  margin-top: 5px;
+}

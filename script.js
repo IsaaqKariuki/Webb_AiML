@@ -18,3 +18,25 @@ cartButtons.forEach(function(button) {
     //console.log(cart[0].name)
   })
 })
+
+// Set countdown duration (1 hour from now)
+let totalSeconds = 3700
+
+const hoursDisplay = document.getElementById("hours")
+const minutesDisplay = document.getElementById("minutes")
+const secondsDisplay = document.getElementById("seconds")
+
+setInterval(function() {
+  // Calculate hours, minutes, seconds
+  const hours = Math.floor(totalSeconds / 3600)
+  const minutes = Math.floor((totalSeconds % 3600) / 60)
+  const seconds = totalSeconds % 60
+
+  // Update the display
+  hoursDisplay.textContent = String(hours).padStart(2, "0")
+  minutesDisplay.textContent = String(minutes).padStart(2, "0")
+  secondsDisplay.textContent = String(seconds).padStart(2, "0")
+
+  // Subtract one second
+  totalSeconds--
+}, 1000)
