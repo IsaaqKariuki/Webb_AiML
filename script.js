@@ -1,25 +1,57 @@
+// Products Array
+const products = [
+  // Plumbing
+  { id: 1, name: "PVC Pipe 1inch", price: 850, category: "Plumbing" },
+  { id: 2, name: "Ball Valve 3/4inch", price: 450, category: "Plumbing" },
+  { id: 3, name: "Pipe Wrench", price: 1200, category: "Plumbing" },
+
+  // Bathroom
+  { id: 4, name: "Shower Head", price: 2500, category: "Bathroom" },
+  { id: 5, name: "Towel Rail", price: 1800, category: "Bathroom" },
+  { id: 6, name: "Mirror Cabinet", price: 4500, category: "Bathroom" },
+
+  // Electrical
+  { id: 7, name: "Extension Cable 5m", price: 650, category: "Electrical" },
+  { id: 8, name: "MCB Switch 20A", price: 550, category: "Electrical" },
+  { id: 9, name: "LED Bulb 15W", price: 350, category: "Electrical" },
+
+  // Tools
+  { id: 10, name: "Hammer 500g", price: 750, category: "Tools" },
+  { id: 11, name: "Power Drill 750W", price: 8500, category: "Tools" },
+  { id: 12, name: "Screwdriver Set", price: 1200, category: "Tools" }
+]
+
+function renderProducts() {
+  const productGrid = document.querySelector(".product-grid")
+  productGrid.innerHTML = ""
+
+  products.forEach(function(product) {
+    productGrid.innerHTML += `
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200" alt="${product.name}"/>
+        <h3>${product.name}</h3>
+        <p>KSh ${product.price.toLocaleString()}</p>
+        <button onclick="addToCart(${product.id})">Add to Cart</button>
+      </div>
+    `
+  })
+}
+
+// Add to cart function
+function addToCart(productId) {
+  const product = products.find(function(p) {
+    return p.id === productId
+  })
+
+  cart.push({ name: product.name, price: "KSh " + product.price.toLocaleString() })
+  document.getElementById("cartCount").textContent = cart.length
+  alert(product.name + " added to cart! 🛒")
+}
+
 // Cart array to store added products
 let cart = []
 
-// Get all Add to Cart buttons
-const cartButtons = document.querySelectorAll(".product-card button")
 
-// Loop through each button and add a click listener
-cartButtons.forEach(function(button) {
-  button.addEventListener("click", function() {
-    const card = button.parentElement
-    const productName = card.querySelector("h3").textContent
-    const productPrice = card.querySelector("p").textContent
-
-    cart.push({ name: productName, price: productPrice })//adds to the array 
-
-    alert(productName + " added to cart! 🛒")
-    // Update cart count
-document.getElementById("cartCount").textContent = cart.length
-    console.log("Cart:", cart) //displays output
-    //console.log(cart[0].name)
-  })
-})
 
 // Cart Sidebar
 const cartSidebar = document.getElementById("cartSidebar")
@@ -65,7 +97,8 @@ function renderCart() {
 
   cartTotal.textContent = "KSh " + total.toLocaleString()
 }
-
+ 
+renderProducts()
 ///////////////////TIMER SECTION ///////////
 // Set countdown duration (1 hour from now)
 let totalSeconds = 3700
