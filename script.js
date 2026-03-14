@@ -21,7 +21,7 @@ const products = [
   { id: 12, name: "Screwdriver Set", price: 1200, category: "Tools" }
 ]
 
-function renderProducts() {
+function renderProducts(productList) {
   const productGrid = document.querySelector(".product-grid")
   productGrid.innerHTML = ""
 
@@ -98,7 +98,25 @@ function renderCart() {
   cartTotal.textContent = "KSh " + total.toLocaleString()
 }
  
-renderProducts()
+//renderProducts(products)
+
+///Filtering products based on the category //
+function filterProducts(category) {
+  console.log("Filter clicked:", category)
+  
+}
+function filterProducts(category) {
+  if (category === "all") {
+    renderProducts(products)
+  } else {
+    const filtered = products.filter(function(p) {
+      return p.category === category
+    })
+    renderProducts(filtered)
+  }
+}
+
+renderProducts(products)
 ///////////////////TIMER SECTION ///////////
 // Set countdown duration (1 hour from now)
 let totalSeconds = 3700

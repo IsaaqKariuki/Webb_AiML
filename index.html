@@ -15,7 +15,7 @@
         <li><a href="#">Home</a></li>
         <li><a href="#">Categories</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="#" id="cartIcon">🛒 Cart <span id="cartCount">0</span></a></l>
+        <li><a href="#" id="cartIcon">🛒 Cart <span id="cartCount">0</span></a></li>
       </ul>
     </nav>
     
@@ -27,6 +27,15 @@
     <button class="hero-btn">Shop Now</button>
   </div>
 </section>
+
+<!-- Category Filter -->
+<div class="filter-buttons">
+  <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+  <button class="filter-btn" onclick="filterProducts('Plumbing')">Plumbing</button>
+  <button class="filter-btn" onclick="filterProducts('Bathroom')">Bathroom</button>
+  <button class="filter-btn" onclick="filterProducts('Electrical')">Electrical</button>
+  <button class="filter-btn" onclick="filterProducts('Tools')">Tools</button>
+</div>
 
 <!-- Flash Sale Timer -->
 <section class="timer-section">
@@ -52,28 +61,7 @@
       <h2>🔥 Top Picks</h2>
       <div class="product-grid">
 
-        <!--
-        <div class="product-card">
-          <img src="https://via.placeholder.com/200" alt="Product 1" />
-          <h3>Product 1</h3>
-          <p>KSh 1,500</p>
-          <button>Add to Cart</button>
-        </div>
-
-        <div class="product-card">
-          <img src="https://via.placeholder.com/200" alt="Product 2" />
-          <h3>Product 2</h3>
-          <p>KSh 2,000</p>
-          <button>Add to Cart</button>
-        </div>
-
-        <div class="product-card">
-          <img src="https://via.placeholder.com/200" alt="Product 3" />
-          <h3>Product 3</h3>
-          <p>KSh 3,500</p>
-          <button>Add to Cart</button>
-        </div>
-.-->
+       
       </div>
     </section>
 
