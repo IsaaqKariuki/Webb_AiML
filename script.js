@@ -25,7 +25,7 @@ function renderProducts(productList) {
   const productGrid = document.querySelector(".product-grid")
   productGrid.innerHTML = ""
 
-  products.forEach(function(product) {
+  productList.forEach(function(product) {
     productGrid.innerHTML += `
       <div class="product-card">
         <img src="https://via.placeholder.com/200" alt="${product.name}"/>
@@ -36,6 +36,26 @@ function renderProducts(productList) {
     `
   })
 }
+
+
+///Filtering products based on the category //
+function filterProducts(category, clickedButton) {
+  const allButtons = document.querySelectorAll(".filter-btn")
+  allButtons.forEach(function(btn) {
+    btn.classList.remove("active")
+  })
+  clickedButton.classList.add("active")
+
+  if (category === "all") {
+    renderProducts(products)
+  } else {
+    const filtered = products.filter(function(p) {
+      return p.category === category
+    })
+    renderProducts(filtered)
+  }
+}
+
 
 // Add to cart function
 function addToCart(productId) {
@@ -98,25 +118,10 @@ function renderCart() {
   cartTotal.textContent = "KSh " + total.toLocaleString()
 }
  
-//renderProducts(products)
 
-///Filtering products based on the category //
-function filterProducts(category) {
-  console.log("Filter clicked:", category)
-  
-}
-function filterProducts(category) {
-  if (category === "all") {
-    renderProducts(products)
-  } else {
-    const filtered = products.filter(function(p) {
-      return p.category === category
-    })
-    renderProducts(filtered)
-  }
-}
 
-renderProducts(products)
+
+
 ///////////////////TIMER SECTION ///////////
 // Set countdown duration (1 hour from now)
 let totalSeconds = 3700
@@ -139,3 +144,5 @@ setInterval(function() {
   // Subtract one second
   totalSeconds--
 }, 1000)
+
+renderProducts(products)
