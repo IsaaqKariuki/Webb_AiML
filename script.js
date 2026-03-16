@@ -145,4 +145,18 @@ setInterval(function() {
   totalSeconds--
 }, 1000)
 
+///////////////Search Section ///////////////////
+// Search functionality
+const searchInput = document.getElementById("searchInput")
+
+searchInput.addEventListener("input", function() {
+  const searchTerm = searchInput.value.toLowerCase()
+  
+  const filtered = products.filter(function(p) {
+    return p.name.toLowerCase().includes(searchTerm)
+  })
+  
+  renderProducts(filtered)
+})
+
 renderProducts(products)
