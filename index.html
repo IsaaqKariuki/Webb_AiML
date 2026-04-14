@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yisake's Online Store</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">Yisake's Store 🛍️</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#" id="cartIcon">🛒 Cart <span id="cartCount">0</span></a></li>
+      </ul>
+    </nav>
+    
+    <!-- Search Bar -->
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search products..." />
+  <button id="searchBtn">🔍 Search</button>
+</div>
+    
+    <!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to Yisake's Store! 🛍️</h1>
+    <p>The best deals in Kenya, delivered to your door</p>
+    <button class="hero-btn">Shop Now</button>
+  </div>
+</section>
+
+<!-- Category Filter -->
+<div class="filter-buttons">
+  <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
+  <button class="filter-btn" onclick="filterProducts('Plumbing',this)">Plumbing</button>
+  <button class="filter-btn" onclick="filterProducts('Bathroom', this)">Bathroom</button>
+  <button class="filter-btn" onclick="filterProducts('Electrical', this)">Electrical</button>
+  <button class="filter-btn" onclick="filterProducts('Tools', this)">Tools</button>
+</div>
+
+<!-- Flash Sale Timer -->
+<section class="timer-section">
+  <h2>⚡ Flash Sale Ends In:</h2>
+  <div class="timer">
+    <div class="time-block">
+      <span id="hours">00</span>
+      <p>Hours</p>
+    </div>
+    <div class="time-block">
+      <span id="minutes">00</span>
+      <p>Minutes</p>
+    </div>
+    <div class="time-block">
+      <span id="seconds">00</span>
+      <p>Seconds</p>
+    </div>
+  </div>
+</section>
+
+    <!-- Product Section -->
+    <section class="products">
+      <h2>🔥 Top Picks</h2>
+      <div class="product-grid">
+
+       
+      </div>
+    </section>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Your Cart 🛒</h2>
+    <button id="closeCart">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <!-- Items will appear here -->
+  </div>
+  <div class="cart-footer">
+    <h3>Total: <span id="cartTotal">KSh 0</span></h3>
+    <button class="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
