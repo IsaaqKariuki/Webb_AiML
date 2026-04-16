@@ -4,7 +4,7 @@ const db = require('../config/db');
 
 //Get all products
 router.get('/',(req, res)=> {
-    const query ='SELECT id, name, retail_price, image, stock FROM products';
+    const query ='SELECT id, name, retail_price, image, stock,category FROM products';
 
     db.query(query, (err, results)=>{
         if(err){
@@ -17,7 +17,7 @@ router.get('/',(req, res)=> {
 
 // GET single product
 router.get('/:id', (req, res) => {
-  const query = 'SELECT id, name, retail_price, image, stock FROM products WHERE id = ?';
+  const query = 'SELECT id, name, retail_price, image, stock , categoryFROM products WHERE id = ?';
   
   db.query(query, [req.params.id], (err, results) => {
     if (err) {
@@ -34,10 +34,10 @@ router.get('/:id', (req, res) => {
 
 // POST add a product
 router.post('/', (req, res) => {
-  const { name, entry_price, retail_price, image,stock } = req.body;
-  const query = 'INSERT INTO products (name, entry_price, retail_price, image, stock) VALUES (?, ?, ?, ?,?)';
+  const { name, entry_price, retail_price, image,stock, category } = req.body;
+  const query = 'INSERT INTO products (name, entry_price, retail_price, image, stock, category) VALUES (?, ?, ?, ?, ?, ?)';
 
-  db.query(query, [name, entry_price, retail_price, image,stock], (err, results) => {
+  db.query(query, [name, entry_price, retail_price, image,stock, category], (err, results) => {
     if (err) {
       res.status(500).json({ error: 'Failed to add product' });
       return;
