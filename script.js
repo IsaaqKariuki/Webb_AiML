@@ -1,25 +1,5 @@
 // Products Array
-const products = [
-  // Plumbing
-  { id: 1, name: "PVC Pipe 1inch", price: 850, category: "Plumbing" },
-  { id: 2, name: "Ball Valve 3/4inch", price: 450, category: "Plumbing" },
-  { id: 3, name: "Pipe Wrench", price: 1200, category: "Plumbing" },
-
-  // Bathroom
-  { id: 4, name: "Shower Head", price: 2500, category: "Bathroom" },
-  { id: 5, name: "Towel Rail", price: 1800, category: "Bathroom" },
-  { id: 6, name: "Mirror Cabinet", price: 4500, category: "Bathroom" },
-
-  // Electrical
-  { id: 7, name: "Extension Cable 5m", price: 650, category: "Electrical" },
-  { id: 8, name: "MCB Switch 20A", price: 550, category: "Electrical" },
-  { id: 9, name: "LED Bulb 15W", price: 350, category: "Electrical" },
-
-  // Tools
-  { id: 10, name: "Hammer 500g", price: 750, category: "Tools" },
-  { id: 11, name: "Power Drill 750W", price: 8500, category: "Tools" },
-  { id: 12, name: "Screwdriver Set", price: 1200, category: "Tools" }
-]
+let products =[];
 
 function renderProducts(productList) {
   const productGrid = document.querySelector(".product-grid")
@@ -28,9 +8,9 @@ function renderProducts(productList) {
   productList.forEach(function(product) {
     productGrid.innerHTML += `
       <div class="product-card">
-        <img src="https://via.placeholder.com/200" alt="${product.name}"/>
+        <img src="https://plus.unsplash.com/premium_photo-1661577094877-725f859aff3e?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="${product.name}"/>
         <h3>${product.name}</h3>
-        <p>KSh ${product.price.toLocaleString()}</p>
+        <p>KSh ${product.retail_price.toLocaleString()}</p>
         <button onclick="addToCart(${product.id})">Add to Cart</button>
       </div>
     `
@@ -159,4 +139,9 @@ searchInput.addEventListener("input", function() {
   renderProducts(filtered)
 })
 
-renderProducts(products)
+fetch('http://localhost:5000/products')
+  .then(response => response.json())
+  .then(data => {
+    products=data;
+    renderProducts(products);
+  });
