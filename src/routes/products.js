@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
+const verifyToken = require('../middleware/auth');
 
 //Get all products
 router.get('/',(req, res)=> {
@@ -33,7 +34,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST add a product
-router.post('/', (req, res) => {
+router.post('/',verifyToken, (req, res) => {
   const { name, entry_price, retail_price, image,stock, category } = req.body;
   const query = 'INSERT INTO products (name, entry_price, retail_price, image, stock, category) VALUES (?, ?, ?, ?, ?, ?)';
 
@@ -47,7 +48,7 @@ router.post('/', (req, res) => {
 });
 
 // PUT UPDATE products
-router.put('/:id',(req,res)=>{ 
+router.put('/:id',verifyToken,(req,res)=>{ 
   const { name, retail_price, stock } = req.body;
   const id = req.params.id;
   const query = 'UPDATE products SET name =?,retail_price=?,stock=? WHERE id=?'
@@ -63,7 +64,7 @@ router.put('/:id',(req,res)=>{
 });
 
 // DELETE A PRODUCT
-router.delete('/:id',(req,res)=>{
+router.delete('/:id',verifyToken,(req,res)=>{
   const id = req.params.id;
   const query ='DELETE FROM products WHERE id =?';
 
