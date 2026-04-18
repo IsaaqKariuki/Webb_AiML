@@ -25,3 +25,7 @@ app.listen(PORT, ()=> {
 //HANDLES USERS
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
+//HANDLES ORDERS
+const orderRoutes = require('./routes/orders');
+app.use('/orders', orderRoutes);
